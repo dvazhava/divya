@@ -1,0 +1,7 @@
+sudo amazon-linux-extras install epel -y
+sudo vi vim /etc/yum.repos.d/epelfordaemonize.repo 
+Add the following:
+[daemonize]
+baseurl=https://download-ib01.fedoraproject.org/pub/epel/7/x86_64/
+gpgcheck=no
+enabled=yes
