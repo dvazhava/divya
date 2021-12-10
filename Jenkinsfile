@@ -19,7 +19,7 @@ pipeline {
         stage('Build Docker image'){
             steps {
               
-                sh 'docker build -t  aruna708/imagename:latest .'
+                sh 'docker build -t  dvazhavalnt/helloworld:latest .'
             }
         }
 
@@ -27,21 +27,21 @@ pipeline {
             
             steps {
                  withCredentials([string(credentialsId: 'DockerId', variable: 'Dockerpwd')]) {
-                    sh "docker login -u aruna708 -p ${Dockerpwd}"
+                    sh "docker login -u dvazhavalnt -p ${divya2521997}"
                 }
             }                
         }
 
         stage('Docker Push'){
             steps {
-                sh 'docker push aruna708/imagename:latest'
+                sh 'docker push dvazhavalnt/helloworld:latest'
             }
         }
         
         stage('Docker deploy'){
             steps {
                
-                sh 'docker run -itd -p  8081:8080 aruna708/image:latest'
+                sh 'docker run -itd -p  8081:8080 dvazhavalnt/helloworld:latest'
             }
         }
 
